@@ -1,0 +1,75 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --release
+
+## exception
+
+FileSystemException: FileSystemException: Cannot create file, path = '/var/folders/mb/1d7ntxk50mvbc255yqhd3g440000gn/T/flutter_tools.ExGee1/core_devices.gL2b9V/core_device_list.json' (OS Error: No space left on device, errno = 28)
+
+```
+#0      _File.throwIfError (dart:io/file_impl.dart:675:7)
+#1      _File.createSync (dart:io/file_impl.dart:306:5)
+#2      ForwardingFile.createSync (package:file/src/forwarding/forwarding_file.dart:26:16)
+#3      IOSCoreDeviceControl._listCoreDevices (package:flutter_tools/src/ios/core_devices.dart:66:12)
+#4      IOSCoreDeviceControl.getCoreDevices (package:flutter_tools/src/ios/core_devices.dart:113:48)
+#5      XCDevice.getAvailableIOSDevices (package:flutter_tools/src/macos/xcdevice.dart:483:72)
+<asynchronous suspension>
+#6      PollingDeviceDiscovery._populateDevices (package:flutter_tools/src/device.dart:563:36)
+<asynchronous suspension>
+#7      Future.wait.<anonymous closure> (dart:async/future.dart:525:21)
+<asynchronous suspension>
+#8      DeviceManager.refreshExtendedWirelessDeviceDiscoverers (package:flutter_tools/src/device.dart:248:5)
+<asynchronous suspension>
+#9      TargetDevicesWithExtendedWirelessDeviceDiscovery._getRefreshedWirelessDevices.<anonymous closure> (package:flutter_tools/src/runner/target_devices.dart:411:7)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.13.6, on macOS 13.5.2 22G91 darwin-arm64, locale tr-TR)
+    [32m•[39m Flutter version 3.13.6 on channel stable at /Users/akincanaksoy/development/flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision ead455963c (3 months ago), 2023-09-26 18:28:17 -0700
+    [32m•[39m Engine revision a794cf2681
+    [32m•[39m Dart version 3.1.3
+    [32m•[39m DevTools version 2.25.0
+
+[31m[✗][39m Android toolchain - develop for Android devices
+    [32m•[39m Android SDK at /Users/akincanaksoy/Library/Android/sdk
+    [31m✗[39m cmdline-tools component is missing
+      Run `path/to/sdkmanager --install "cmdline-tools;latest"`
+      See https://developer.android.com/studio/command-line for more details.
+
+[32m[✓][39m Xcode - develop for iOS and macOS (Xcode 15.0.1)
+    [32m•[39m Xcode at /Applications/Xcode.app/Contents/Developer
+    [32m•[39m Build 15A507
+    [32m•[39m CocoaPods version 1.13.0
+
+[32m[✓][39m Chrome - develop for the web
+    [32m•[39m Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[33m[!][39m Android Studio (not installed)
+    [32m•[39m Android Studio not found; download from https://developer.android.com/studio/index.html
+      (or visit https://flutter.dev/docs/get-started/install/macos#android-setup for detailed instructions).
+
+[32m[✓][39m VS Code (version 1.78.2)
+    [32m•[39m VS Code at /Users/akincanaksoy/Downloads/Visual Studio Code.app/Contents
+    [32m•[39m Flutter extension version 3.80.0
+
+[32m[✓][39m Connected device (3 available)
+    [32m•[39m Akın Can iPhone’u (mobile) • 00008030-001344D13600202E • ios            • iOS 17.1.2 21B101
+    [32m•[39m macOS (desktop)            • macos                     • darwin-arm64   • macOS 13.5.2 22G91 darwin-arm64
+    [32m•[39m Chrome (web)               • chrome                    • web-javascript • Google Chrome 120.0.6099.129
+    [33m![39m Error: Browsing on the local area network for Berkay . Ensure the device is unlocked and attached with a cable or associated
+      with the same local area network as this Mac.
+      The device must be opted into Developer Mode to connect wirelessly. (code -27)
+
+[32m[✓][39m Network resources
+    [32m•[39m All expected network resources are available.
+
+[33m![39m Doctor found issues in 2 categories.
+```

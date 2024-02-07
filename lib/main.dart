@@ -173,7 +173,7 @@ class WebViewPage extends StatelessWidget {
           backgroundColor: Color(0xFF2F2E3E),
         ),
         body: WebView(
-          initialUrl: Uri.encodeFull("http://agrowio.targe.com.tr/"),
+          initialUrl: Uri.encodeFull("http://171.22.185.27/"),
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
             _completer.complete(webViewController);
@@ -205,7 +205,7 @@ void _showToastWhenNotValid(BuildContext context, String message) {
 
 Future<bool> checkInternetConnection() async {
   bool result = await InternetConnectionChecker().hasConnection;
-  return result;
+  return true;
 }
 
 void writeData(bool isSubscribed) async {
