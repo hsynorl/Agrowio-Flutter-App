@@ -46,64 +46,59 @@ class MainPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 25.0),
-                  child: Container(
-                      width: 180,
-                      child:
-                          Center(child: Image.asset("assets/agrowiologo.png"))),
-                ),
-                Center(
-                  child: Container(
-                    height: 48,
-                    width: 300,
-                    child: TextField(
-                      controller: _controller,
-                      decoration: InputDecoration(
-                        hintText:
-                            "Örnek: 0549 543 0761", // Hint metni bu formatta
-                        hintStyle: TextStyle(color: Colors.white38, height: 3),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color(0xFF8CBA24),
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color(0xFF8CBA24),
-                          ),
-                        ),
-                      ),
-                      keyboardType: TextInputType
-                          .phone, // Telefon numarası için uygun klavye türü
-                      style: TextStyle(color: Colors.white),
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(11),
-                        PhoneNumberFormatter(), // Özel bir giriş biçimi düzenleyici (aşağıda tanımlanacak)
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: Center(
-                    child: Container(
-                      height: 40,
+                Container(
+                    padding: EdgeInsets.only(left: 60, right: 60, bottom: 20),
+                    child: Center(
+                        child: Image.asset("assets/agrowioWhitelogo.png"))),
+                Column(
+                  children: [
+                    Container(
                       width: 300,
+                      height: 50,
+                      child: TextField(
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          hintText:
+                              "Örnek: 0549 543 0761", // Hint metni bu formatta
+                          hintStyle: TextStyle(color: Colors.white38),
+                          contentPadding: EdgeInsets.only(top: 3.0, left: 10.0),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Color(0xFF8CBA24),
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Color(0xFF8CBA24),
+                            ),
+                          ),
+                        ),
+                        keyboardType: TextInputType
+                            .phone, // Telefon numarası için uygun klavye türü
+                        style: TextStyle(color: Colors.white),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(11),
+                          PhoneNumberFormatter(), // Özel bir giriş biçimi düzenleyici (aşağıda tanımlanacak)
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 300,
+                      height: 50,
+                      margin: EdgeInsets.only(top: 10.0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF8CBA24),
                         ),
                         child: Text(
                           "Telefon Numarası Ekle",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                         onPressed: () {
                           String deger = _controller.text.replaceAll(" ", "");
-
                           checkInternetConnection().then((value) {
                             if (value) {
                               if (deger.length == 11) {
@@ -132,7 +127,7 @@ class MainPage extends StatelessWidget {
                         },
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

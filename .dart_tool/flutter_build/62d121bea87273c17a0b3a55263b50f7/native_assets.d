@@ -1,0 +1,1 @@
+ C:\\Users\\Targe-Huseyin\\Documents\\Agrowio-Flutter-App\\.dart_tool\\flutter_build\\62d121bea87273c17a0b3a55263b50f7\\native_assets.yaml: 
